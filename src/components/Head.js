@@ -1,11 +1,11 @@
 import  '../App.css';
-import grid from '../images/photo-grid.png'
+
 
 export default function Head(){
     return(
 
         <section className='hero'>
-            <img className='hero-photo'  src = {grid}  /> 
+            <img className='hero-photo'  src = '/images/photo-grid.png'  /> 
             <h1 className='hero--h1' > Online Experiences</h1>
             <p className='hero-para'>
              Join unique interactive activities led by 

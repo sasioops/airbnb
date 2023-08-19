@@ -1,22 +1,34 @@
 import '../App.js'
-import img1 from '../images/image-12.png' 
-import star from'../images/star.png'
-export default function Card(){
+//import star from'/images/star.png'
+export default function Card(props){
+  let badgeText
+  if(props.item.openSpots === 0){
+    badgeText='Sold Out'
+  }
+  else if(props.item.location === 'Online') {
+    badgeText= 'Online'
+  }
+
     return(
         <div className = 'card'>
-            <img  className="card-img1" src = {img1} />
+          {
+            badgeText && 
+            <div className="card-badge">{badgeText}</div>
+            
+          }
+            <img  className="card-img1" src = {`./images/${props.item.coverImg}`} />
             <div className = " card-stats">
-              <img width = "14px" className="card-star" src={star}/>
-              <span>5</span>
-              <span>(06) • </span>
-              <span>USA</span>
+              <img width = "14px" className="card-star" src='/images/star.png' />
+              <span>{props.item.stats.rating}</span>
+              <span>({props.item.stats.reviewCount}) • </span>
+              <span>{props.item.location}</span>
             </div>
           
-            <p>
-            Life Lessons with Katie Zaferes
+            <p className="card--title">
+            {props.item.title}
             </p>
-            <p>
-            From $136/person
+            <p className="card--price">
+            From ${props.item.price}/person
             </p>
          </div>      
            
